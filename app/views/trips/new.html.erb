@@ -1,0 +1,11 @@
+<div class="container m-5">
+  <%= simple_form_for @trip do |f| %>
+    <%= f.input :title, placeholder: 'Mon trip à Milan' %>
+    <%= f.input :destination, placeholder: 'Milan' %>
+    <%= f.input :interests, placeholder: 'Musées, randonnées, restaurants etc...' %>
+    <%= f.input :start_date, as: :date, :order => [:day, :month, :year]%>
+    <%= f.input :end_date, as: :date, :order => [:day, :month, :year] %>
+    <%= f.input :other, placeholder: 'Chiens acceptés, accessible en voiture etc...' %>
+    <%= f.submit class: 'btn btn-flat' %>
+  <% end %>
+</div>
