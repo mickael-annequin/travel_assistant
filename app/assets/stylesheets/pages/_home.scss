@@ -1,1 +1,20 @@
 // Specific CSS for your home-page
+.home-hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+}
+
+.home-btn {
+  background: #ff5a5f;
+  color: white;
+  padding: 12px 32px;
+  border-radius: 30px;
+  text-decoration: none;
+}
