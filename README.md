@@ -25,7 +25,7 @@ Test : Trip.first.messages dans rails c (avec les seeds). ✅
 
 Étape 3 : afficher la conversation sur la page show
 
-Boucle sur @trip.messages dans la vue, avec un affichage différent selon le role.
+Boucle sur @trip.messages dans la vue, avec un affichage différent selon le role. ✅
 Le formulaire simple_form_for [@trip, @message], avec @message = Message.new dans trips#show.
 Test : les 2 messages des seeds s'affichent.
 
@@ -39,7 +39,7 @@ Enregistrer le message de l'utilisateur (role: "user").
 Appeler RubyLLM avec with_instructions(...) et .ask(...).
 Enregistrer la réponse (role: "assistant"), puis redirect_to vers la page du trip.
 
-Test : tu poses une question, la réponse apparaît.
+Test : tu poses une question, la réponse apparaît. ✅
 
 Étape 6 : le prompt
 

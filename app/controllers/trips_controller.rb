@@ -1,4 +1,6 @@
 class TripsController < ApplicationController
+  FIRST_QUESTION = "Propose 5 points d'intérêt : 3 liés à mes centres d'intérêt et 2 incontournables de la destination."
+
   def new
     @trip = Trip.new
   end
@@ -8,6 +10,8 @@ class TripsController < ApplicationController
     @trip.user = current_user
 
     if @trip.save
+      response = RubyLLM.chat.with_instructions(@trip.instructions).ask(FIRST_QUESTION)
+      Message.create(role: "assistant", content: response.content, trip: @trip)
       redirect_to trip_path(@trip)
     else
       render :new, status: :unprocessable_entity
