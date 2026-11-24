@@ -1,0 +1,9 @@
+<h1>Liste des trips</h1>
+
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= link_to trip.title, trip_path(trip) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Créer un nouveau trip", new_trip_path %>
