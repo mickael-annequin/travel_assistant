@@ -26,6 +26,10 @@ gem "tzinfo-data", platforms: %i[windows jruby]
 gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
+gem "ruby_llm"
+gem "kramdown"
+gem "rouge"
+gem "kramdown-parser-gfm"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

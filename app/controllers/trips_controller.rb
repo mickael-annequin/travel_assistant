@@ -16,6 +16,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
+    @message = Message.new
   end
 
   def index
