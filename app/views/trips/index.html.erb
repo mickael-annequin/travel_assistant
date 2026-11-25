@@ -26,6 +26,8 @@
 
       <% @trips.each do |trip| %>
         <li><%= link_to trip.title, trip_path(trip) %></li>
+        <li><%= link_to "Delete", trip_path(trip), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"},
+    class: "btn btn-outline-danger btn-sm ms-2" %></li>
       <% end %>
     </ul>
   </div>

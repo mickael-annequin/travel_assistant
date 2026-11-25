@@ -6,12 +6,23 @@ class MessagesController < ApplicationController
     @message.role = "user"
 
     if @message.save
-      ruby_llm_chat = RubyLLM.chat.with_instructions(@trip.instructions)
-      response = ruby_llm_chat.ask(@message.content)
-      Message.create(role: "assistant", content: response.content, trip: @trip)
-      redirect_to trip_path(@trip)
+      @ruby_llm_chat = RubyLLM.chat
+      build_conversation_history
+      response = @ruby_llm_chat.with_instructions(@trip.instructions).ask(@message.content)
+      @assistant_message = Message.create(role: "assistant", content: response.content, trip: @trip)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to trip_path(@trip) }
+      end
+
     else
-      render trip_path(@trip), status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("new_message_container", partial: "messages/form",
+                                                                            locals: { trip: @trip, message: @message })
+        end
+        format.html { render "trips/show", status: :unprocessable_entity }
+      end
     end
   end
 
@@ -19,5 +30,11 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:content)
+  end
+
+  def build_conversation_history
+    @trip.messages.each do |message|
+      @ruby_llm_chat.add_message(role: message.role, content: message.content)
+    end
   end
 end
