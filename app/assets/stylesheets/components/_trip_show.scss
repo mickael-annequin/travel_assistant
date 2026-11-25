@@ -1,7 +1,7 @@
 .trip-show {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 70px); // hauteur de l'écran moins la navbar
 }
 
 .trip-main {
@@ -10,6 +10,7 @@
 }
 
 .trip-sidebar {
+  height: 100%;
   background-color: #f8f9fa;
   border-left: 1px solid #dee2e6;
   padding: 24px;
@@ -19,11 +20,12 @@
 .trip-chat {
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  height: 100%;          // toute la hauteur de .trip-main, pas plus
 }
 
 .chat-messages {
-  flex: 1;
+  flex: 1;               // prend toute la place restante
+  min-height: 0;         // autorise la zone à rétrécir, donc à défiler
   overflow-y: auto;
   background-color: white;
   border: 1px solid #dee2e6;
@@ -33,29 +35,20 @@
 
 .trip-actions {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  padding: 16px 24px;
-  border-top: 1px solid #dee2e6;
-  background-color: white;
-}
-
-.trip-actions {
-  display: flex;
   align-items: center;
   gap: 12px;
   padding: 16px 24px;
   border-top: 1px solid #dee2e6;
   background-color: white;
-}
-  form {
+
+  form {                 // seulement le formulaire DANS .trip-actions
     display: flex;
     gap: 12px;
     margin: 0;
   }
 
-  > .btn {
+  > .btn {               // le bouton Delete, enfant direct de .trip-actions
     flex: 0 0 auto;
-    align-self: center;
     white-space: nowrap;
+  }
 }

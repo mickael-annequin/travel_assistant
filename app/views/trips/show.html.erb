@@ -5,41 +5,44 @@
       <div class="col-12 col-md-3 trip-sidebar">
         <h1><%= @trip.title %></h1>
 
-      <div class="mb-3">
-        <p>
-          Du <%= @trip.start_date %>
-          Au <%= @trip.end_date %>
-        </p>
-      </div>
-
-      <div class="mb-3">
-        <p>
-          Centres d'intérêt : <%= @trip.interests %>
-          other : <%= @trip.other %>
-        </p>
-      </div>
-    </div>
-
-    <div class="col-12 col-md-9 trip-chat">
-      <div id="messages" class="chat-messages">
-        <% @trip.messages.each do |message| %>
-          <%= render  "messages/message", message: message %>
+        <% if @trip.photo_url.present? %>
+          <%= image_tag @trip.photo_url, alt: @trip.destination, class: "img-fluid rounded mb-2" %>
+          <p class="small text-muted">Photo de <%= @trip.photo_credit %> sur Unsplash</p>
         <% end %>
-      </div>
-    </div>
-  </div>
-</div>
 
+        <div class="mb-3">
+          <p>
+            Du <%= @trip.start_date %>
+            Au <%= @trip.end_date %>
+          </p>
+        </div>
 
-<div class="trip-actions">
-  <div id="new_message_container" class="flex-grow-1">
-    <%= render "messages/form", trip: @trip, message: @message %>
-  </div>
+        <div class="mb-3">
+          <p>
+            Centres d'intérêt : <%= @trip.interests %>
+            other : <%= @trip.other %>
+          </p>
+        </div>
+      </div> <!-- fin trip-sidebar -->
 
-  <%= link_to "Delete",
-    trip_path(@trip),
-    data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"},
-    class: "btn btn-outline-danger" %>
+      <div class="col-12 col-md-9 trip-chat">
+        <div id="messages" class="chat-messages">
+          <% @trip.messages.each do |message| %>
+            <%= render "messages/message", message: message %>
+          <% end %>
+        </div> <!-- fin messages -->
 
-  </div>
-</div>
+        <div class="trip-actions">
+          <div id="new_message_container" class="flex-grow-1">
+            <%= render "messages/form", trip: @trip, message: @message %>
+          </div> <!-- fin new_message_container -->
+
+          <%= link_to "Delete", trip_path(@trip),
+                      data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
+                      class: "btn btn-outline-danger" %>
+        </div> <!-- fin trip-actions -->
+      </div> <!-- fin trip-chat -->
+
+    </div> <!-- fin row -->
+  </div> <!-- fin container-fluid -->
+</div> <!-- fin trip-show -->
