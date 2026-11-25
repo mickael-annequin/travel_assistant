@@ -3,32 +3,23 @@
 
   <div class="trips-list">
     <ul class="row g-3 mb-4 list-unstyled">
-      <li class="col-12 col-md-4">
-        <div class="destination-card">
-          <%= image_tag "TK.jpg", alt: "Rue de Tokyo aux enseignes lumineuses" %>
-          <h2>Tokyo</h2>
-        </div>
-      </li>
-
-      <li class="col-12 col-md-4">
-        <div class="destination-card">
-          <%= image_tag "sydney.jpg", alt: "Opéra de Sydney au bord de l’eau" %>
-          <h2>Sydney</h2>
-        </div>
-      </li>
-
-      <li class="col-12 col-md-4">
-        <div class="destination-card">
-          <%= image_tag "zanzibar.jpg", alt: "Plage de Zanzibar et eau turquoise" %>
-          <h2>Zanzibar</h2>
-        </div>
-      </li>
 
       <% @trips.each do |trip| %>
-        <li><%= link_to trip.title, trip_path(trip) %></li>
-        <li><%= link_to "Delete", trip_path(trip), data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr?"},
-    class: "btn btn-outline-danger btn-sm ms-2" %></li>
+        <li class="col-12 col-md-4">
+          <div class="destination-card">
+            <%= link_to trip_path(trip) do %>
+              <%= image_tag trip.photo_url, alt: trip.destination if trip.photo_url.present? %>
+            <% end %>
+            <h2><%= link_to trip.title, trip_path(trip) %></h2>
+            <p>
+              <%= link_to "🗑️", trip_path(trip),
+                          data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
+                          class: "btn btn-outline-danger btn-sm ms-2" %>
+            </p>
+          </div>
+        </li>
       <% end %>
+
     </ul>
   </div>
 
