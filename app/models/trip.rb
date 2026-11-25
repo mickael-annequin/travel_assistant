@@ -1,4 +1,6 @@
 class Trip < ApplicationRecord
+  require "open-uri"
+  require "json"
   belongs_to :user
   has_many :messages, dependent: :destroy
 
@@ -22,5 +24,20 @@ class Trip < ApplicationRecord
 
   def instructions
     [SYSTEM_PROMPT, context].join("\n\n")
+  end
+
+  def fetch_photo
+    query = URI.encode_www_form_component(destination)
+    url = "https://api.unsplash.com/search/photos?query=#{query}&per_page=1&orientation=landscape&client_id=#{ENV.fetch(
+      'UNSPLASH_ACCESS_KEY'
+)}"
+    data = JSON.parse(URI.open(url).read)
+    photo = data["results"].first
+    return if photo.nil?
+
+    self.photo_url = photo["urls"]["regular"]
+    self.photo_credit = photo["user"]["name"]
+  rescue OpenURI::HTTPError
+    nil
   end
 end

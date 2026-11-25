@@ -8,7 +8,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
-
+    @trip.fetch_photo
     if @trip.save
       response = RubyLLM.chat.with_instructions(@trip.instructions).ask(FIRST_QUESTION)
       Message.create(role: "assistant", content: response.content, trip: @trip)
