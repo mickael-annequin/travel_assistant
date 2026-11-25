@@ -1,30 +1,45 @@
-<h1><%= @trip.title %></h1>
+<div class="trip-show">
+  <div class="container-fluid trip-main">
+    <div class="row h-100">
 
-<p>
-  Du <%= @trip.start_date %>
-  Au <%= @trip.end_date %>
-</p>
+      <div class="col-12 col-md-3 trip-sidebar">
+        <h1><%= @trip.title %></h1>
 
-<p>
-  Centres d'intérêt : <%= @trip.interests %>
+      <div class="mb-3">
+        <p>
+          Du <%= @trip.start_date %>
+          Au <%= @trip.end_date %>
+        </p>
+      </div>
 
-  other : <%= @trip.other %>
-</p>
+      <div class="mb-3">
+        <p>
+          Centres d'intérêt : <%= @trip.interests %>
+          other : <%= @trip.other %>
+        </p>
+      </div>
+    </div>
 
-
-<div id="messages">
-  <% @trip.messages.each do |message| %>
-    <%= render  "messages/message", message: message %>
-  <% end %>
+    <div class="col-12 col-md-9 trip-chat">
+      <div id="messages" class="chat-messages">
+        <% @trip.messages.each do |message| %>
+          <%= render  "messages/message", message: message %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="new_message_container">
+
+<div class="trip-actions">
+  <div id="new_message_container" class="flex-grow-1">
     <%= render "messages/form", trip: @trip, message: @message %>
-</div>
+  </div>
 
-<div class="mt-4">
   <%= link_to "Delete",
-  trip_path(@trip),
-  data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"},
-  class: "btn btn-outline-danger" %>
+    trip_path(@trip),
+    data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"},
+    class: "btn btn-outline-danger" %>
+
+  </div>
 </div>

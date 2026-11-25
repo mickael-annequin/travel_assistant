@@ -1,0 +1,61 @@
+.trip-show {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+}
+
+.trip-main {
+  flex: 1;
+  overflow: hidden;
+}
+
+.trip-sidebar {
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.trip-chat {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.trip-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #dee2e6;
+  background-color: white;
+}
+
+.trip-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #dee2e6;
+  background-color: white;
+}
+  form {
+    display: flex;
+    gap: 12px;
+    margin: 0;
+  }
+
+  > .btn {
+    flex: 0 0 auto;
+    align-self: center;
+    white-space: nowrap;
+}
