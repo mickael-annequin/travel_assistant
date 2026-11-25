@@ -10,9 +10,19 @@ class MessagesController < ApplicationController
       build_conversation_history
       response = @ruby_llm_chat.with_instructions(@trip.instructions).ask(@message.content)
       @assistant_message = Message.create(role: "assistant", content: response.content, trip: @trip)
-      redirect_to trip_path(@trip)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to trip_path(@trip) }
+      end
+
     else
-      render "trip/show", status: :unprocessable_entity
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("new_message_container", partial: "messages/form",
+                                                                            locals: { trip: @trip, message: @message })
+        end
+        format.html { render "trips/show", status: :unprocessable_entity }
+      end
     end
   end
 
