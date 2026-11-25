@@ -10,3 +10,17 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-lewagon .avatar-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #486897;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}

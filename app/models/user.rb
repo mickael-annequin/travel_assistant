@@ -4,4 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :trips, dependent: :destroy
+
+  def initials
+    name = username.presence || email.split("@").first
+    name.split(/[\s._-]+/).first(2).map { |word| word[0] }.join.upcase
+  end
 end
