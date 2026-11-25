@@ -21,3 +21,10 @@
 <div id="new_message_container">
     <%= render "messages/form", trip: @trip, message: @message %>
 </div>
+
+<div class="mt-4">
+  <%= link_to "Delete",
+  trip_path(@trip),
+  data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?"},
+  class: "btn btn-outline-danger" %>
+</div>
