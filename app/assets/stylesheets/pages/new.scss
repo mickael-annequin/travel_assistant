@@ -1,0 +1,137 @@
+.container.m-5:has(> form[data-controller="datepicker"]) {
+  width: calc(100% - 32px);
+  max-width: 660px;
+  margin: 40px auto !important; // Prend le dessus sur la classe Bootstrap m-5
+  padding: clamp(20px, 5vw, 40px);
+  background-color: #fff;
+  border: 1px solid #ece6ef;
+  border-radius: 24px;
+  box-shadow: 0 12px 36px rgba(38, 24, 49, 0.08);
+  animation: trip-form-enter 660ms ease-out both;
+
+  .form-label {
+    color: #302638;
+    font-weight: 600;
+  }
+
+  .form-control {
+    min-height: 48px;
+    padding: 10px 14px;
+    background-color: #fbf9fc;
+    border-color: #ded6e4;
+    border-radius: 12px;
+
+    &:focus {
+      border-color: #702794;
+      box-shadow: 0 0 0 3px rgba(112, 39, 148, 0.15);
+    }
+  }
+
+  .btn-flat {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 20px;
+    background-color: #702794;
+    color: #fff;
+    border: 0;
+    border-radius: 14px;
+    font-weight: 600;
+
+    &:hover,
+    &:focus-visible {
+      background-color: #581c75;
+      color: #fff;
+    }
+  }
+}.container.m-5:has(> form[data-controller="datepicker"]) {
+  width: calc(100% - 32px);
+  max-width: 660px;
+  margin: 40px auto !important; // Prend le dessus sur la classe Bootstrap m-5
+  padding: clamp(20px, 5vw, 40px);
+  background-color: #fff;
+  border: 1px solid #ece6ef;
+  border-radius: 24px;
+  box-shadow: 0 12px 36px rgba(38, 24, 49, 0.08);
+
+
+  .form-label {
+    color: #302638;
+    font-weight: 600;
+  }
+
+  .form-control {
+    min-height: 48px;
+    padding: 10px 14px;
+    background-color: #fbf9fc;
+    border-color: #ded6e4;
+    border-radius: 12px;
+
+    &:focus {
+      border-color: #702794;
+      box-shadow: 0 0 0 3px rgba(112, 39, 148, 0.15);
+    }
+  }
+
+  .btn-flat {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 20px;
+    background-color: #702794;
+    color: #fff;
+    border: 0;
+    border-radius: 14px;
+    font-weight: 600;
+    transition: transform 120ms ease, background-color 150ms ease;
+
+&:active {
+  transform: translateY(2px);
+}
+
+    &:hover,
+    &:focus-visible {
+      background-color: #581c75;
+      color: #fff;
+    }
+  }
+}
+#main-content:has(form[data-controller="datepicker"]) {
+  display: flow-root;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+  background-size: cover;
+  background-position: center;
+}
+@keyframes trip-form-enter {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container.m-5:has(> form[data-controller="datepicker"]) {
+    animation: none;
+  }
+}
+// Typographie du formulaire de création de voyage
+form[data-controller="datepicker"] {
+  .form-label,
+  .form-control,
+  .btn-flat {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+  }
+
+  .form-label {
+    font-size: 20px;
+  }
+}
