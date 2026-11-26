@@ -14,7 +14,8 @@
             <p>
               <%= link_to "🗑️", trip_path(trip),
                           data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
-                          class: "btn btn-outline-danger btn-sm ms-2" %>
+                          class: "delete-btn",
+                          title: "Supprimer" %>
             </p>
           </div>
         </li>
