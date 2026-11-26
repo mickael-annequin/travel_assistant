@@ -1,4 +1,4 @@
   <%= simple_form_for [trip, message] do |f| %>
-    <%= f.input :content, label: "Ask a question", required: true, placeholder: "D'autres idées de visite?" %>
-    <%= f.button :submit, 'Ask LLM', class: 'btn btn-primary' %>
+    <%= f.input :content, label: "Affiner votre résultat: ", required: true, placeholder: "D'autres idées de visite?", input_html: { class: "rounded-pill px-4" } %>
+    <%= f.button :submit, 'Recherche', class: 'btn btn-primary rounded-pill px-4' %>
   <% end %>
