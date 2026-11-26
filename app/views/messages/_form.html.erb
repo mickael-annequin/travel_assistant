@@ -1,9 +1,10 @@
   <%= simple_form_for [trip, message] do |f| %>
     <%= f.input :content,
       as: :string,
-      label: "Affiner votre résultat: ",
+      label: false,
       required: true,
       placeholder: "D'autres idées de visite?",
+      wrapper_html: { class: "mb-0" },
       input_html: { class: "rounded-pill px-4" } %>
     <%= f.button :submit, 'Go !', class: 'btn btn-primary rounded-pill px-4' %>
   <% end %>

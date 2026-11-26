@@ -1,10 +1,10 @@
 <section class="home-hero">
 <div class="container m-5">
-  <h1>Pour préparer mon meilleur voyage ....</h1>
+  <h1>Pour préparer mon meilleur voyage ...</h1>
   <!-- <a href="trips/new" class="home-btn">commencer /a> -->
   <%= form_with url: new_trip_path, method: :get do |f| %>
-      <%= f.label :destination, "Je choisis la ville " %>
-      <%= f.text_field :destination, placeholder: 'Milan' %>
+      <%= f.label :destination, "Je choisis ma destination   " %>
+      <%= f.text_field :destination, placeholder: ' Milan' %>
       <%= f.submit "Go !", class: 'btn home-btn' %>
   <% end %>
 </div>

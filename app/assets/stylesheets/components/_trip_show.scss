@@ -59,6 +59,8 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  margin: 0;
+  width: 100%;
   padding: 16px 24px;
   border-top: 1px solid #dee2e6;
   background-color: white;
@@ -66,7 +68,7 @@
 
   form {                 // seulement le formulaire DANS .trip-actions
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 12px;
     margin: 0;
     width: 100%;         // le formulaire prend toute la largeur disponible
@@ -75,7 +77,7 @@
     .form-group,
     .mb-3 {              // la div que simple_form met autour du champ
       flex: 1;
-      margin-bottom: 0;
+      margin-bottom: 0 !important;
     }
 
     input[type="text"],
