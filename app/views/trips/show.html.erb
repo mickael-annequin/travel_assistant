@@ -4,11 +4,16 @@
 
       <div class="col-4 col-lg-3 trip-sidebar">
         <div class="trip-card">
-          <h1 class="rainbow-title"><%= @trip.title %></h1>
+          <h1 class="fw-bold"><%= @trip.title %></h1>
+
+          <%= link_to "🗑️", trip_path(@trip),
+            data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" },
+            class: "delete-btn",
+            title: "Supprimer" %>
 
           <% if @trip.photo_url.present? %>
             <%= image_tag @trip.photo_url, alt: @trip.destination, class: "img-fluid rounded-4 mb-2" %>
-            <p class="small text-muted">Photo de <%= @trip.photo_credit.titleize %> - Unsplash</p>
+            <p class="small text-muted">Photo de <%= @trip.photo_credit&.titleize %> - Unsplash</p>
           <% end %>
 
           <div class="mb-3">
@@ -42,14 +47,11 @@
           <% end %>
         </div> <!-- fin messages -->
 
-        <div class="trip-actions">
+        <div class="trip-actions bg-white border rounded-3 p-3 mt-3">
           <div id="new_message_container" class="flex-grow-1">
             <%= render "messages/form", trip: @trip, message: @message %>
           </div> <!-- fin new_message_container -->
 
-          <%= link_to "Supprimer", trip_path(@trip),
-            data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
-            class: "btn btn-outline-danger rounded-pill px-4" %>
         </div> <!-- fin trip-actions -->
       </div> <!-- fin trip-chat -->
 
