@@ -2,30 +2,32 @@
   <div class="container-fluid trip-main">
     <div class="row h-100">
 
-      <div class="col-12 col-md-3 trip-sidebar">
-        <h1><%= @trip.title %></h1>
+      <div class="col-4 col-lg-3 trip-sidebar">
+        <div class="trip-card">
+          <h1 class="rainbow-title"><%= @trip.title %></h1>
 
-        <% if @trip.photo_url.present? %>
-          <%= image_tag @trip.photo_url, alt: @trip.destination, class: "img-fluid rounded mb-2" %>
-          <p class="small text-muted">Photo de <%= @trip.photo_credit %> sur Unsplash</p>
-        <% end %>
+          <% if @trip.photo_url.present? %>
+            <%= image_tag @trip.photo_url, alt: @trip.destination, class: "img-fluid rounded-4 mb-2" %>
+            <p class="small text-muted">Photo de <%= @trip.photo_credit.titleize %> - Unsplash</p>
+          <% end %>
 
-        <div class="mb-3">
-          <p>
-            Du <%= @trip.start_date %>
-            Au <%= @trip.end_date %>
-          </p>
-        </div>
+          <div class="mb-3">
+            <p class="mb-3">
+              - Du <strong><%= @trip.start_date&.strftime("%d/%m/%Y") %></strong>
+              au <strong><%= @trip.end_date&.strftime("%d/%m/%Y") %></strong><br>
+              - Centres d'intérêt: <%= @trip.interests %><br>
+              - Autres: <%= @trip.other %>
+            </p>
+          </div>
 
-        <div class="mb-3">
-          <p>
-            Centres d'intérêt : <%= @trip.interests %>
-            other : <%= @trip.other %>
-          </p>
+          <div class="trip-card mt-3">
+            <h2 class="h5 fw-bold mb-3">Mes signets</h2>
+            <p class="text-muted small mb-0">.......</p>
+          </div>
         </div>
       </div> <!-- fin trip-sidebar -->
 
-      <div class="col-12 col-md-9 trip-chat">
+      <div class="col-8 col-lg-9 trip-chat">
         <div id="messages" class="chat-messages">
           <% @trip.messages.each do |message| %>
             <%= render "messages/message", message: message %>
@@ -37,9 +39,9 @@
             <%= render "messages/form", trip: @trip, message: @message %>
           </div> <!-- fin new_message_container -->
 
-          <%= link_to "Delete", trip_path(@trip),
-                      data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
-                      class: "btn btn-outline-danger" %>
+          <%= link_to "Supprimer", trip_path(@trip),
+            data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
+            class: "btn btn-outline-danger rounded-pill px-4" %>
         </div> <!-- fin trip-actions -->
       </div> <!-- fin trip-chat -->
 

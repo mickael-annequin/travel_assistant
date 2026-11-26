@@ -11,8 +11,8 @@
 
 .trip-sidebar {
   height: 100%;
-  background-color: #f8f9fa;
-  border-left: 1px solid #dee2e6;
+  background-color: #fce0be;
+  border-left: 1px solid #0b253f;
   padding: 24px;
   overflow-y: auto;
 }
@@ -31,6 +31,8 @@
   border: 1px solid #dee2e6;
   border-radius: 8px;
   padding: 16px;
+  padding-right: 32px;
+  text-align: justify;
 }
 
 .trip-actions {
@@ -43,12 +45,39 @@
 
   form {                 // seulement le formulaire DANS .trip-actions
     display: flex;
+    align-items: center;
     gap: 12px;
     margin: 0;
+    width: 100%;         // le formulaire prend toute la largeur disponible
+
+    > div,
+    .form-group,
+    .mb-3 {              // la div que simple_form met autour du champ
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;       // le champ remplit toute sa div
+    }
   }
 
-  > .btn {               // le bouton Delete, enfant direct de .trip-actions
+  > .btn {               // le bouton Supprimer, enfant direct de .trip-actions
     flex: 0 0 auto;
     white-space: nowrap;
   }
+}
+
+.rainbow-title {
+  background-clip: text;
+  font-weight: bold;
+  -webkit-text-stroke: 1px #1a1919;
+}
+
+.trip-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
