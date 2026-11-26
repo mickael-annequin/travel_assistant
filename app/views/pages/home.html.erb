@@ -1,4 +1,11 @@
 <section class="home-hero">
-  <h1>ou partez vous ?</h1>
-  <p>des idées d'activités pour votre voyage ?</p>
-  <a href="trips/new" class="home-btn">commencer</a></section>
+<div class="container m-5">
+  <h1>Pour préparer mon meilleur voyage ....</h1>
+  <!-- <a href="trips/new" class="home-btn">commencer /a> -->
+  <%= form_with url: new_trip_path, method: :get do |f| %>
+      <%= f.label :destination, "Je choisis la ville " %>
+      <%= f.text_field :destination, placeholder: 'Milan' %>
+      <%= f.submit "Go !", class: 'btn home-btn' %>
+  <% end %>
+</div>
+</section>
