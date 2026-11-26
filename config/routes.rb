@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :trips, only: [:new, :create, :show, :index, :destroy] do
     resources :messages, only: [:create]
+    resources :bookmarks, only: [:create]
   end
 
 end
