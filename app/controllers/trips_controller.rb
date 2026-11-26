@@ -2,7 +2,7 @@ class TripsController < ApplicationController
   FIRST_QUESTION = "Propose 5 points d'intérêt : 3 liés à mes centres d'intérêt et 2 incontournables de la destination."
 
   def new
-    @trip = Trip.new
+    @trip = Trip.new(destination: params[:destination])
   end
 
   def create
