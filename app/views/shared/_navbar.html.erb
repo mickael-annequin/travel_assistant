@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand d-flex align-items-center gap-2" do %>
-      <%= image_tag "logo_island.png", alt: "logo Islang" %>
-      <span>Assistant Traveler Co&</span>
+    <%= link_to "/", class: "navbar-brand d-flex align-items-center gap-0" do %>
+      <%= image_tag "Logo_violet.jpg", alt: "logo Islang", style: "height: 60px; width: auto;" %>
+      <span Style="color: #702794; font-weight: bold;">Le Boulingeur</span>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,9 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <span class="nav-link"> Bonjour <%= current_user.username %> </span>
+          <span class="nav-link" style="color: black; font-style: italic;"> Bonjour <%= current_user.username %> </span>
           <li class="nav-item active">
-            <%= link_to "Mes voyages", trips_path, class: "nav-link" %>
+            <%= link_to "Mes voyages", trips_path, class: "nav-link text-black" %>
             <%# link_to "Home Initial", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -31,7 +31,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Login", new_user_session_path, class: "nav-link text-black fw-bold" %>
           </li>
         <% end %>
       </ul>
