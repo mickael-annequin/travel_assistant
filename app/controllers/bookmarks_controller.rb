@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   def create
-    @trip = Trip.find(params[:trip_id])
+    @trip = current_user.trips.find(params[:trip_id])
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.trip = @trip
 

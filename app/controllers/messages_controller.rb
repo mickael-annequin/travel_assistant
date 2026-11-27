@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def create # rubocop:disable Metrics/MethodLength
     @message = Message.new(message_params)
-    @trip = Trip.find(params[:trip_id])
+    @trip = current_user.trips.find(params[:trip_id])
     @message.trip = @trip
     @message.role = "user"
 

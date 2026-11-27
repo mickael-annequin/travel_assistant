@@ -24,7 +24,7 @@ class TripsController < ApplicationController
   end
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips
   end
 
   def destroy
