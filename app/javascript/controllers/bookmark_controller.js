@@ -11,7 +11,7 @@ export default class extends Controller {
       if (li.querySelector("strong")) {
         li.insertAdjacentHTML(
           "afterbegin",
-          '<button type="button" class="btn btn-sm btn-link p-0 me-2" data-action="click->bookmark#save">☆</button>'
+          '<button type="button" class="bookmark-star" label="favori" data-action="click->bookmark#save">☆</button>'
         )
       }
     })

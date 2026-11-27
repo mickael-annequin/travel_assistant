@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     resources :bookmarks, only: [:create]
   end
+  resources :bookmarks, only: :destroy
 
 end
