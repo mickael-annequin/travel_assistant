@@ -1,7 +1,7 @@
 .container.m-5:has(> form[data-controller="datepicker"]) {
   width: calc(100% - 32px);
   max-width: 660px;
-  margin: 40px auto !important; // Prend le dessus sur la classe Bootstrap m-5
+  margin: -20px auto 40px !important; // Prend le dessus sur la classe Bootstrap m-5
   padding: clamp(20px, 5vw, 40px);
   background-color: #fff;
   border: 1px solid #ece6ef;
@@ -46,7 +46,7 @@
 }.container.m-5:has(> form[data-controller="datepicker"]) {
   width: calc(100% - 32px);
   max-width: 660px;
-  margin: 40px auto !important; // Prend le dessus sur la classe Bootstrap m-5
+  margin: -20px auto 40px !important; // Prend le dessus sur la classe Bootstrap m-5
   padding: clamp(20px, 5vw, 40px);
   background-color: #fff;
   border: 1px solid #ece6ef;
