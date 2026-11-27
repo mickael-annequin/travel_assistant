@@ -34,9 +34,13 @@
           <% else %>
             <ul class="list-unstyled text-muted small mb-0">
               <% @trip.bookmarks.each do |bookmark| %>
-                <li class="trip-card mt-3">
-                  <strong><%= bookmark.name %></strong> - <%= bookmark.description %>
-                </li>
+              <li class="trip-card bookmark-card mt-3">
+                <strong><%= bookmark.name %></strong> - <%= bookmark.description %>
+                <%= link_to "🗑️", bookmark_path(bookmark),
+                            data: { turbo_method: :delete, turbo_confirm: "Supprimer ce favori ?" },
+                            class: "bookmark-delete-btn",
+                            title: "Supprimer" %>
+              </li>
               <% end %>
             </ul>
           <% end %>
