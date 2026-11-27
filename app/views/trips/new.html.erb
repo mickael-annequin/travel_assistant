@@ -1,15 +1,15 @@
 <div class="container m-5">
   <%= simple_form_for @trip, data: { controller: "datepicker" } do |f| %>
-    <%= f.input :title, placeholder: 'Mon trip' %>
+    <%= f.input :title, label: "Titre du voyage", placeholder: 'Mon voyage' %>
     <%= f.input :destination, placeholder: 'Milan' %>
-    <%= f.input :interests, placeholder: 'Musées, randonnées, restaurants etc...' %>
+    <%= f.input :interests, label: "Centres d’intérêt", placeholder: "Musées, randonnées, restaurants…" %>
     <div class="mb-3">
       <label class="form-label">Période du voyage</label>
       <input type="text" class="form-control" placeholder="Choisis tes dates" data-datepicker-target="range">
     </div>
     <%= f.input :start_date, as: :hidden, input_html: { data: { datepicker_target: "startDate" } } %>
     <%= f.input :end_date, as: :hidden, input_html: { data: { datepicker_target: "endDate" } } %>
-    <%= f.input :other, placeholder: 'Chiens acceptés, accessible en voiture etc...' %>
-    <%= f.submit class: 'btn btn-flat' %>
+    <%= f.input :other, label: "Autres", placeholder: "Chiens acceptés, accès en voiture…" %>
+    <%= f.submit "Créer le voyage", class: "btn btn-flat" %>
   <% end %>
 </div>
