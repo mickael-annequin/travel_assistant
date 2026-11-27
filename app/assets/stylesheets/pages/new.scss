@@ -1,7 +1,7 @@
 .container.m-5:has(> form[data-controller="datepicker"]) {
   width: calc(100% - 32px);
   max-width: 660px;
-  margin: -20px auto 40px !important; // Prend le dessus sur la classe Bootstrap m-5
+  margin: 40px auto !important; // Prend le dessus sur la classe Bootstrap m-5
   padding: clamp(20px, 5vw, 40px);
   background-color: #fff;
   border: 1px solid #ece6ef;
@@ -12,51 +12,12 @@
   .form-label {
     color: #302638;
     font-weight: 600;
-  }
 
-  .form-control {
-    min-height: 48px;
-    padding: 10px 14px;
-    background-color: #fbf9fc;
-    border-color: #ded6e4;
-    border-radius: 12px;
-
-    &:focus {
-      border-color: #702794;
-      box-shadow: 0 0 0 3px rgba(112, 39, 148, 0.15);
+    i {
+      color: #702794;      // le violet du site
+      width: 20px;         // largeur fixe : les textes restent alignés
+      margin-right: 6px;
     }
-  }
-
-  .btn-flat {
-    width: 100%;
-    margin-top: 8px;
-    padding: 12px 20px;
-    background-color: #702794;
-    color: #fff;
-    border: 0;
-    border-radius: 14px;
-    font-weight: 600;
-
-    &:hover,
-    &:focus-visible {
-      background-color: #581c75;
-      color: #fff;
-    }
-  }
-}.container.m-5:has(> form[data-controller="datepicker"]) {
-  width: calc(100% - 32px);
-  max-width: 660px;
-  margin: -20px auto 40px !important; // Prend le dessus sur la classe Bootstrap m-5
-  padding: clamp(20px, 5vw, 40px);
-  background-color: #fff;
-  border: 1px solid #ece6ef;
-  border-radius: 24px;
-  box-shadow: 0 12px 36px rgba(38, 24, 49, 0.08);
-
-
-  .form-label {
-    color: #302638;
-    font-weight: 600;
   }
 
   .form-control {
@@ -95,7 +56,10 @@
   }
 }
 #main-content:has(form[data-controller="datepicker"]) {
-  display: flow-root;
+  min-height: calc(100vh - 86px);   // toute la hauteur de l'écran, moins la navbar
+  display: flex;
+  align-items: center;              // centre verticalement
+  justify-content: center;          // centre horizontalement
 
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),

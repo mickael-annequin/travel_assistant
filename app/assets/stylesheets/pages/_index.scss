@@ -5,7 +5,7 @@
 
 .trips-page .titre {
   font-family: "Roboto", sans-serif;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   margin: 24px 0;
 }
@@ -52,7 +52,7 @@
 
 @media (hover: none) {
   .destination-card .delete-btn {
-    opacity: 1;                 
+    opacity: 1;
   }
 }
 
@@ -70,7 +70,7 @@
   font-weight: 600;
 }
 
-.trips-page > a {
+.btn-new-trip {
   display: inline-block;
   padding: 12px 24px;
   background-color: #702794;
@@ -81,6 +81,7 @@
   transition: background-color 0.2s;
 }
 
-.trips-page > a:hover {
+.btn-new-trip:hover {
   background-color: #6a117d;
+  color: white;
 }

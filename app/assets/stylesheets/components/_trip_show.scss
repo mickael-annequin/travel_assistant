@@ -1,7 +1,8 @@
 .trip-show {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 70px); // hauteur de l'écran moins la navbar
+  height: calc(100vh - 86px);
+  background-color: #f5f0f8;
 }
 
 .trip-main {
@@ -12,9 +13,8 @@
 .trip-sidebar {
   position: relative;
   height: 100%;
-  background-color: #f5f0f8;
   border-left: 1px solid #0b253f;
-  padding: 24px;
+  padding: 16px 24px;
   overflow-y: auto;
 
   .delete-btn {
@@ -53,6 +53,7 @@
   padding: 16px;
   padding-right: 32px;
   text-align: justify;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .trip-actions {
@@ -65,6 +66,7 @@
   border-top: 1px solid #dee2e6;
   background-color: white;
   border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 
   form {                 // seulement le formulaire DANS .trip-actions
     display: flex;
@@ -92,4 +94,36 @@
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.trip-infos {
+  li {
+    margin-bottom: 6px;
+  }
+
+  i {
+    color: #702794;
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+.trip-sidebar,
+.chat-messages {
+  &::-webkit-scrollbar {
+    width: 8px;                  // plus fine que la barre par défaut
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;     // le rail, invisible
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #c9a8db;         // le curseur, en violet clair
+    border-radius: 10px;
+
+    &:hover {
+      background: #702794;       // violet du site au survol
+    }
+  }
 }
