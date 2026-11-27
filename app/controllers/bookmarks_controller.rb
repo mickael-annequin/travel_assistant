@@ -11,6 +11,15 @@ class BookmarksController < ApplicationController
     end
   end
 
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @trip = @bookmark.trip
+    return redirect_to trips_path, alert: "Action non autorisée" unless @trip.user == current_user
+
+    @bookmark.destroy
+    redirect_to trip_path(@trip), status: :see_other
+  end
+
   private
 
   def bookmark_params

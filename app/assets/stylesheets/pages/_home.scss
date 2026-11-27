@@ -12,9 +12,16 @@
 }
 
 .home-btn {
-  background: #d1464b;
+  background: #702794;
   color: white;
-  padding: 12px 32px;
+  padding: 6px 32px;
   border-radius: 30px;
   text-decoration: none;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #581c75;
+    color: white;
+    font-weight: bold;
+  }
 }

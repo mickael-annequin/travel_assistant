@@ -1,5 +1,6 @@
 <div class="container trips-page">
-  <h1 class="titre">Liste des voyages</h1>
+
+  <h1 class="titre">Liste des trips</h1>   <%= link_to "Créer un nouveau trip", new_trip_path %>
 
   <div class="trips-list">
     <ul class="row g-3 mb-4 list-unstyled">
@@ -10,7 +11,7 @@
             <%= link_to trip_path(trip) do %>
               <%= image_tag trip.photo_url, alt: trip.destination if trip.photo_url.present? %>
             <% end %>
-            <h2><%= link_to trip.title, trip_path(trip) %></h2>
+            <h2><%= link_to trip.title, trip_path(trip),class: "text-decoration-none fw-bold text-body fs-1" %></h2>
             <p>
               <%= link_to "🗑️", trip_path(trip),
                           data: { turbo_method: :delete, turbo_confirm: "Etes-vous sûr ?" },
@@ -23,6 +24,4 @@
 
     </ul>
   </div>
-
-  <%= link_to "Créer un nouveau voyage", new_trip_path %>
 </div>
