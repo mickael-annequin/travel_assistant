@@ -5,23 +5,74 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 32px;                 // espace entre le titre et le formulaire
+  padding: 24px;             // pour que rien ne colle aux bords sur petit écran
   text-align: center;
   color: white;
   background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
     url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+
+  h1 {
+    margin: 0 0 32px;
+    font-family: "Roboto", sans-serif;
+    font-size: clamp(36px, 5vw, 60px);           // s'adapte à la largeur de l'écran
+    font-weight: 700;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35); // détache le texte de la photo
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  label {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  }
+
+  input[type="text"] {
+    width: 320px;
+    min-height: 48px;
+    padding: 10px 14px;
+    background-color: #fbf9fc;
+    border: 1px solid #ded6e4;
+    border-radius: 12px;
+    color: #302638;
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+
+    &:focus {
+      outline: none;
+      border-color: #702794;
+      box-shadow: 0 0 0 3px rgba(112, 39, 148, 0.35);
+    }
+  }
 }
 
 .home-btn {
+  min-height: 48px;
+  padding: 10px 32px;
   background: #702794;
   color: white;
-  padding: 6px 32px;
-  border-radius: 30px;
+  border: 0;
+  border-radius: 14px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: background 0.2s ease, transform 120ms ease;
 
   &:hover {
     background: #581c75;
     color: white;
-    font-weight: bold;
+  }
+
+  &:active {
+    transform: translateY(2px);
   }
 }
