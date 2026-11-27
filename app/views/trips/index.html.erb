@@ -1,8 +1,10 @@
 <div class="container trips-page">
 
-  <h1 class="titre">Liste des trips</h1>   <%= link_to "Créer un nouveau trip", new_trip_path %>
-
-  <div class="trips-list">
+  <div class="d-flex justify-content-between align-items-center">
+    <h1 class="titre">Liste des voyages</h1>
+    <%= link_to "Créer un nouveau trip", new_trip_path, class: "btn-new-trip" %>
+  </div>
+    <div class="trips-list">
     <ul class="row g-3 mb-4 list-unstyled">
 
       <% @trips.each do |trip| %>

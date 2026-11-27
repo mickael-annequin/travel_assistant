@@ -1,15 +1,24 @@
 <div class="container m-5">
   <%= simple_form_for @trip, data: { controller: "datepicker" } do |f| %>
-    <%= f.input :title, label: "Titre du voyage", placeholder: 'Mon voyage' %>
-    <%= f.input :destination, placeholder: 'Milan' %>
-    <%= f.input :interests, label: "Centres d’intérêt", placeholder: "Musées, randonnées, restaurants…" %>
+    <%= f.input :title,
+      label: '<i class="fa-solid fa-pen"></i> Titre du voyage'.html_safe,
+      input_html: { placeholder: "Mon voyage" }  %>
+    <%= f.input :destination,
+      label: '<i class="fa-solid fa-location-dot"></i> Destination'.html_safe,
+      input_html: { placeholder: "Milan" } %>
+    <%= f.input :interests,
+      label: '<i class="fa-solid fa-heart"></i> Centres d\'intérêt'.html_safe,
+      input_html: { placeholder: "Musées, randonnées, restaurants…" } %>
+
     <div class="mb-3">
-      <label class="form-label">Période du voyage</label>
+      <label class="form-label"><i class="fa-solid fa-calendar-days"></i> Période du voyage</label>
       <input type="text" class="form-control" placeholder="Choisis tes dates" data-datepicker-target="range">
     </div>
     <%= f.input :start_date, as: :hidden, input_html: { data: { datepicker_target: "startDate" } } %>
     <%= f.input :end_date, as: :hidden, input_html: { data: { datepicker_target: "endDate" } } %>
-    <%= f.input :other, label: "Autres", placeholder: "Chiens acceptés, accès en voiture…" %>
+    <%= f.input :other,
+    label: '<i class="fa-solid fa-circle-info"></i> Autres'.html_safe,
+    input_html: { placeholder: "Chiens acceptés, accès en voiture…" } %>
     <%= f.submit "Créer le voyage", class: "btn btn-flat" %>
   <% end %>
 </div>
