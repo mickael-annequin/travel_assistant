@@ -99,3 +99,12 @@ form[data-controller="datepicker"] {
     font-size: 20px;
   }
 }
+
+.flatpickr-day.inRange {
+  background: #ded6e4;
+}
+
+.flatpickr-day.startRange, .flatpickr-day.endRange, .flatpickr-day.startRange:hover, .flatpickr-day.endRange:hover, .flatpickr-day.flatpickr-day.selected {
+  background: #702794;
+
+}
